@@ -1,0 +1,54 @@
+<%- include('./layouts/header') %>
+<%- include('./layouts/nvabar') %>
+<main id="site-main">
+  <div class="container">
+      <div class="box-nav d-flex justify-between">
+          <a href="/create_user" class="border-shadow">
+              <span class="text-gradient">New User <i class="fas fa-user"></i></span>
+          </a>
+      </div>
+
+      <!-- form handling -->
+      <form action="/" method="POST">
+          <table class="table">
+              <thead class="thead-dark">
+                  <tr>
+                      <th>Avatar</th>
+                      <th>Full Name</th>
+                      <th>Email</th> 
+                      <th>Phone</th>
+                      <th>Date</th>
+                      <th>Departement</th>
+                      <th>Action</th>
+                      
+                  </tr>
+              </thead>
+              <tbody>
+                  <% data.forEach(element => { %>
+          <tr>
+            <td><img src="https://i.top4top.io/p_1994j8njk1.png"></td>
+            <td><a href=""></a><%= element.FullName %> </td>
+            <td><%= element.Email %> </td>
+            <td><%= element.Phone %> </td>
+            <td><%= element.createdAt.toISOString().substring(0, 10) %> </td>
+            <!--  -->
+            <td>
+              <a href="/user/<%= element.id %> " class="btn update  border-shadow update">
+                  <span class="text-gradient"><i class="fas fa-pencil-alt"></i></span>
+              </a>
+              <a href="/delete_user/<%= element.id %> "class="btn delete border-shadow delete">
+                  <span class="text-gradient"><i class="fas fa-times"></i></span>
+              </a>
+          </td>
+        </tr>
+      
+         <% }) %>
+              </tbody>
+          </table>
+      </form>
+  </div>
+</main>
+
+
+       
+          

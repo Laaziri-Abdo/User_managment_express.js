@@ -1,0 +1,106 @@
+<%- include('./layouts/header') %>
+<%- include('./layouts/nvabar') %>
+
+<div class="container ">
+  <div class="text-center">
+     <img src="./layouts/corporate-data-management-system-dms-260nw-304480604.webp" class="w-50" alt="">
+      <h1 >Bienvenu</h1>
+      <hr>
+      <h2>Les statistiques</h2>
+  </div>
+<div class=" ud row text-center gap-3 mt-4">
+  <h2 class="col-md  alert alert-primary  "><strong class="text-primary">+<%= data.length %></strong> Utilisateurs</h2>
+  <h2 class="col-md alert alert-danger "><strong class="text-danger ">+<%= departements.length %> </strong> Departements</h2>
+</div>
+<br>
+<hr>
+<h2 class="text-center">Pourcentage d'utilisateurs dans chaque département</h2>
+<br>
+
+<%departements.forEach(element => { 
+    let count = 0 %>
+ <% data.forEach(item => { %>
+  <% if (element.id == item.idDepartement) count++  %>
+ <% })
+ let value = count/departements.length*100 %>
+ <h3 for=""><%=element.nom%>  : <div class="float-end"><%= value.toFixed(2)%> %</div> </h3>
+ <progress class="female" value='<%=value%>' max='100'>  </progress>
+<% }) %>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<style>
+  *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Libre Franklin', sans-serif;
+}
+body{
+  
+    background-color: rgb(193, 233, 155)!important;
+    background-image: url(./layouts/corporate-data-management-system-dms-260nw-304480604.webp);
+}
+
+.text-center{
+  text-align: center;
+}
+
+.ud{
+  display: flex;
+  justify-content: space-around;
+  padding: 40px;
+}
+.ud h2{
+  background-color: #06d6a0;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  height: 50px;
+  width: 43%
+}
+
+
+.logo{
+    max-width: 80px;
+}
+.btn-success{
+    background-color: #4dc0b5 !important;
+}
+th, td{
+    width: 200px !important;
+    text-align: center !important;
+}
+.delete{
+    margin-left: 25px !important;
+}
+progress[value]{
+   
+    -webkit-appearance: none;
+    margin-bottom: 20px;
+    width: 100%; 
+    height: 20px;
+  }
+  
+    progress[value]::-webkit-progress-value {
+        background-color: #3490dc;
+        border-radius: 10px;
+      }
+      progress[value]::-webkit-progress-bar {
+        background-color: #ffffff;
+        border-radius: 12px;
+        border: 1px solid #423d3d;
+      }
+  </style>
+
+<%- include('./layouts/footer')  %>
+
+

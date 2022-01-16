@@ -1,0 +1,35 @@
+<%- include('./layouts/header') %>
+<%- include('./layouts/nvabar') %>
+<!-- form handling -->
+<% data.forEach(element => { %>
+ <form action="/edit_user" method="POST" id="add_user">
+  <div class="new_user">
+      <div class="form-group">
+          <label for="name" class="text-light">Full Name</label>
+          <input type="hidden" name="id" value="<%= element.id %>">
+          <input type="text" name="FullName" value="<%= element.FullName %>" placeholder="Mark Stoenis">
+      </div>
+      <div class="form-group">
+          <label for="Email" class="text-light">Email</label>
+          <input type="text" name="Email" value="<%= element.Email %>" placeholder="example@gmail.com">
+      </div>
+      <div class="form-group">
+        <label for="Phone" class="text-light">Phone</label>
+        <input type="text" name="Phone" value="<%= element.Phone %>" placeholder="">
+    </div>
+    <!-- <div class="form-group">
+      <label for="Phone" class="text-light">Departement</label>
+          <select class="text-light" id="pet-select">
+              <option value="1">--Please choose an Departement--</option>
+              <option value="2">Dog</option>
+          </select>
+  </div> -->
+      <div class="form-group">
+          <button type="submit" class="btn text-dark update">Save</button>
+      </div>
+      
+
+    
+       <% }) %>
+  </div>
+</form>

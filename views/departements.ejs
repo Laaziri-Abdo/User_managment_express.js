@@ -1,0 +1,56 @@
+<%- include('./layouts/header') %>
+<%- include('./layouts/nvabar') %>
+<main id="site-main">
+  <div class="container">
+      <div class="box-nav d-flex justify-between">
+          <a href="/create_departement" class="border-shadow">
+              <span class="text-gradient">New Departemnt <i class="fas fa-user"></i></span>
+          </a>
+      </div>
+
+      <!-- form handling -->
+      <form action="/" method="POST">
+          <table class="table">
+              <thead class="thead-dark">
+                  <tr>
+                      <th>Avatar</th>
+                      <th>Name</th>
+                      <th>Descreption</th>
+                      <th>Date</th>
+                      <th>Action</th>
+                      
+                  </tr>
+              </thead>
+              <tbody>
+                <% departemets.forEach(element => { %>
+                    <tr>
+                      <td><img src="https://i.top4top.io/p_1994j8njk1.png"></td>
+                      <td><a href=""></a><%= element.nom %></td>
+                      <td><%= element.descreption %> </td>
+                      <td><%= element.createdAt.toISOString().substring(0, 10) %>%> </td>
+                      <td>  <a href="/departement/<%= element.id %> " class="btn update border-shadow update">
+                              <span class="text-gradient"><i class="fas fa-pencil-alt"></i></span>
+                          </a>
+                          <a href="/delete_department/<%= element.id %> "class="btn delete border-shadow delete">
+                              <span class="text-gradient"><i class="fas fa-times"></i></span>
+                          </a>
+                      </td>
+                  </tr>
+                   <% }) %>
+    
+              </tbody>
+          </table>
+      </form>
+  </div>
+</main>
+
+
+       
+          
+ 
+ 
+
+
+
+
+

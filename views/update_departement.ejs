@@ -1,0 +1,23 @@
+<%- include('./layouts/header') %>
+<%- include('./layouts/nvabar') %>
+<!-- form handling -->
+<% Departement.forEach(element => { %>
+    <form action="/edit_departement" method="POST" id="add_user">
+        <div class="new_user">
+            <div class="form-group">
+                <label for="name" class="text-light">Name</label>
+                <input type="hidden" name="id" value="<%= element.id %>">
+                <input type="text" name="nom" value="<%= element.nom %>" placeholder="">
+            </div>
+            <div class="form-group">
+                <label for="" class="text-light">Descreption</label>
+                <input type="text" name="descreption" value="<%= element.descreption %>" placeholder="">
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn text-dark update">Save</button>
+            </div>
+      
+<% }) %>
+ 
+  </div>
+</form>
